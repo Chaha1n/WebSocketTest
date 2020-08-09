@@ -8,7 +8,7 @@ def new_client(client, server):
 
 def received(client, server, message):
     cnt = int(message)
-    if(cnt == 2):
+    if(cnt == 3):
         cnt = 0
     else:
         cnt += 1

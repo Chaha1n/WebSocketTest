@@ -1,19 +1,23 @@
 const socket = new WebSocket("ws://localhost:9999/");
 socket.addEventListener('open', function (event) {
     console.log("System Ready");
+    $("#listening_img").css("display", "block");
 });
 socket.addEventListener('message', function (event) {
     console.log(event.data);
-    $(".images").css("display", "none");
+    $(".components").css("display", "none");
     switch (event.data) {
         case "0":
-            $("#listening_img").css("display", "block");
+            $("#listening").css("display", "block");
             break;
         case "1":
-            $("#sending_img").css("display", "block");
+            $("#sending").css("display", "block");
             break;
         case "2":
-            $("#finished_img").css("display", "block");
+            $("#succeeded").css("display", "block");
+            break;
+        case "3":
+            $("#error").css("display", "block");
             break;
         default:
             console.log("Something Wrong...");
